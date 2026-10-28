@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello</title>
+  <title>회사 웨비나 신청</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -11,25 +11,115 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 24px;
       font-family: -apple-system, "Pretendard", "Noto Sans KR", sans-serif;
       background: linear-gradient(135deg, #e0f2fe, #ede9fe);
       color: #1e293b;
     }
     .card {
-      text-align: center;
-      padding: 56px 72px;
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 36px;
       background: #fff;
       border-radius: 24px;
       box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
     }
-    h1 { font-size: 3rem; margin-bottom: 12px; }
-    p { font-size: 1.1rem; color: #64748b; }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4f46e5;
+      background: #eef2ff;
+      border-radius: 999px;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .desc { color: #64748b; margin-bottom: 20px; line-height: 1.5; }
+    .info {
+      list-style: none;
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      background: #f8fafc;
+      border-radius: 12px;
+    }
+    .info b { display: inline-block; width: 56px; color: #475569; }
+    label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 600; }
+    input, select {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      font: inherit;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+    }
+    input:focus, select:focus { outline: 2px solid #818cf8; border-color: transparent; }
+    button {
+      width: 100%;
+      padding: 14px;
+      font: inherit;
+      font-weight: 700;
+      color: #fff;
+      background: #4f46e5;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover { background: #4338ca; }
+    .done { display: none; text-align: center; padding: 24px 0; }
+    .done h2 { margin-bottom: 8px; }
+    .done p { color: #64748b; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Hello, World! 👋</h1>
-    <p>안녕하세요, 반갑습니다.</p>
+    <div id="formView">
+      <span class="badge">ONLINE WEBINAR</span>
+      <h1>회사 웨비나 신청</h1>
+      <p class="desc">아래 정보를 입력하고 신청해 주세요.</p>
+
+      <ul class="info">
+        <li><b>일시</b> 2026년 11월 12일(목) 14:00</li>
+        <li><b>방식</b> 온라인 (링크는 신청 후 안내)</li>
+        <li><b>대상</b> 임직원 누구나</li>
+      </ul>
+
+      <form id="form">
+        <label for="name">이름</label>
+        <input id="name" type="text" placeholder="홍길동" required>
+
+        <label for="email">회사 이메일</label>
+        <input id="email" type="email" placeholder="name@company.com" required>
+
+        <label for="team">소속 팀</label>
+        <select id="team" required>
+          <option value="" disabled selected>선택해 주세요</option>
+          <option>기획</option>
+          <option>개발</option>
+          <option>디자인</option>
+          <option>마케팅</option>
+          <option>기타</option>
+        </select>
+
+        <button type="submit">신청하기</button>
+      </form>
+    </div>
+
+    <div id="doneView" class="done">
+      <h2>🎉 신청이 완료되었습니다</h2>
+      <p><span id="who"></span>님, 웨비나에서 만나요!</p>
+    </div>
   </div>
+
+  <script>
+    document.getElementById('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('who').textContent = document.getElementById('name').value;
+      document.getElementById('formView').style.display = 'none';
+      document.getElementById('doneView').style.display = 'block';
+    });
+  </script>
 </body>
 </html>
