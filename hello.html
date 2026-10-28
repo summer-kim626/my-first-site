@@ -18,12 +18,24 @@
     }
     .card {
       width: 100%;
-      max-width: 480px;
+      max-width: 560px;
       padding: 40px 36px;
       background: #fff;
       border-radius: 24px;
       box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
     }
+    .banner {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 22px;
+      border-radius: 16px;
+    }
+    .about { margin-bottom: 24px; }
+    .about h2 { font-size: 1rem; margin-bottom: 10px; }
+    .about ul { list-style: none; font-size: 0.95rem; line-height: 1.7; color: #334155; }
+    .about li { padding-left: 14px; position: relative; }
+    .about li::before { content: "•"; position: absolute; left: 0; color: #6366f1; }
     .badge {
       display: inline-block;
       padding: 4px 12px;
@@ -76,6 +88,61 @@
 <body>
   <div class="card">
     <div id="formView">
+      <svg class="banner" viewBox="0 0 520 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="온라인 웨비나 일러스트: 노트북 화면 속 화상 회의와 말풍선">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6366f1"/>
+            <stop offset="1" stop-color="#a78bfa"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="210" fill="url(#bg)"/>
+        <circle cx="60" cy="40" r="70" fill="#fff" opacity="0.08"/>
+        <circle cx="470" cy="180" r="90" fill="#fff" opacity="0.08"/>
+        <circle cx="440" cy="30" r="5" fill="#fff" opacity="0.7"/>
+        <circle cx="486" cy="62" r="3" fill="#fff" opacity="0.6"/>
+        <circle cx="38" cy="150" r="4" fill="#fff" opacity="0.6"/>
+
+        <!-- laptop -->
+        <rect x="150" y="38" width="220" height="130" rx="10" fill="#1e1b4b"/>
+        <rect x="158" y="46" width="204" height="114" rx="6" fill="#eef2ff"/>
+        <rect x="120" y="168" width="280" height="12" rx="6" fill="#c7d2fe"/>
+        <rect x="235" y="168" width="50" height="5" rx="2.5" fill="#a5b4fc"/>
+
+        <!-- screen: presenter slide + attendee tiles -->
+        <rect x="168" y="56" width="126" height="76" rx="5" fill="#fff"/>
+        <rect x="178" y="68" width="60" height="8" rx="4" fill="#6366f1"/>
+        <rect x="178" y="84" width="96" height="5" rx="2.5" fill="#cbd5e1"/>
+        <rect x="178" y="95" width="80" height="5" rx="2.5" fill="#cbd5e1"/>
+        <rect x="178" y="106" width="88" height="5" rx="2.5" fill="#cbd5e1"/>
+        <circle cx="272" cy="120" r="7" fill="#f59e0b"/>
+
+        <g>
+          <rect x="302" y="56" width="52" height="34" rx="5" fill="#c7d2fe"/>
+          <circle cx="328" cy="68" r="6" fill="#6366f1"/>
+          <path d="M316 86 q12 -14 24 0 z" fill="#6366f1"/>
+          <rect x="302" y="96" width="52" height="34" rx="5" fill="#fde68a"/>
+          <circle cx="328" cy="108" r="6" fill="#f59e0b"/>
+          <path d="M316 126 q12 -14 24 0 z" fill="#f59e0b"/>
+        </g>
+        <rect x="168" y="138" width="186" height="14" rx="7" fill="#e0e7ff"/>
+        <circle cx="180" cy="145" r="4" fill="#ef4444"/>
+        <rect x="190" y="143" width="40" height="4" rx="2" fill="#a5b4fc"/>
+
+        <!-- speech bubbles -->
+        <g>
+          <rect x="52" y="62" width="76" height="38" rx="12" fill="#fff"/>
+          <path d="M96 100 l10 12 l2 -12 z" fill="#fff"/>
+          <circle cx="72" cy="81" r="4" fill="#6366f1"/>
+          <circle cx="90" cy="81" r="4" fill="#6366f1"/>
+          <circle cx="108" cy="81" r="4" fill="#6366f1"/>
+        </g>
+        <g>
+          <rect x="396" y="86" width="72" height="36" rx="12" fill="#fde68a"/>
+          <path d="M412 122 l-8 12 l18 -12 z" fill="#fde68a"/>
+          <path d="M416 104 l8 8 l16 -16" fill="none" stroke="#b45309" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+
       <span class="badge">ONLINE WEBINAR</span>
       <h1>회사 웨비나 신청</h1>
       <p class="desc">아래 정보를 입력하고 신청해 주세요.</p>
@@ -85,6 +152,15 @@
         <li><b>방식</b> 온라인 (링크는 신청 후 안내)</li>
         <li><b>대상</b> 임직원 누구나</li>
       </ul>
+
+      <section class="about">
+        <h2>이 웨비나에서 다루는 내용</h2>
+        <ul>
+          <li><b>주제</b> 팀 협업을 바꾸는 AI 활용법</li>
+          <li><b>연사</b> 사내 AI 활용 담당 팀장</li>
+          <li><b>14:00</b> 오프닝 · <b>14:10</b> 발표 · <b>14:40</b> Q&amp;A</li>
+        </ul>
+      </section>
 
       <form id="form">
         <label for="name">이름</label>
